@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.1/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.1/tippy.css">
+</head>
+<body>
+    <div class="logout-container">
+        <a href="{{ url_for('logout') }}" class="logout-button">Выйти</a>
+    </div>
+    <div class="back-to-main-container">
+        <a href="{{ url_for('index') }}" class="back-to-main-button">Главное меню</a>
+    </div>
+    <div class="container">
+        <h1>Admin Dashboard</h1>
+        <div class="button-container">
+            <button onclick="showSection('add')">Добавить аккаунт</button>
+            <button onclick="showSection('update')">Обновить аккаунт</button>
+            <button onclick="showSection('delete')">Удалить аккаунт</button>
+        </div>
+        <div id="add" class="form-container" style="display:none;">
+            <h2>Добавить аккаунт</h2>
+            <form method="POST" action="{{ url_for('admin_add') }}">
+                <input type="text" name="id" placeholder="ID" required>
+                <select name="status" required>
+                    <option value="Standard">Standard</option>
+                    <option value="Premium">Premium</option>
+                </select>
+                <button type="submit">Добавить</button>
+                <span class="tooltip" data-tippy-content="Введите уникальный идентификатор и выберите статус"></span>
+            </form>
+        </div>
+        <div id="update" class="form-container" style="display:none;">
+            <h2>Обновить аккаунт</h2>
+            <form method="POST" action="{{ url_for('admin_update') }}">
+                <input type="text" name="id" placeholder="ID" required>
+                <select name="status" required>
+                    <option value="Standard">Standard</option>
+                    <option value="Premium">Premium</option>
+                </select>
+                <button type="submit">Обновить</button>
+                <span class="tooltip" data-tippy-content="Введите идентификатор и выберите новый статус"></span>
+            </form>
+        </div>
+        <div id="delete" class="form-container" style="display:none;">
+            <h2>Удалить аккаунт</h2>
+            <form method="POST" action="{{ url_for('admin_delete') }}">
+                <input type="text" name="id" placeholder="ID" required>
+                <button type="submit">Удалить</button>
+                <span class="tooltip" data-tippy-content="Введите идентификатор аккаунта для удаления"></span>
+            </form>
+        </div>
+    </div>
+    <script>
+        function showSection(section) {
+            document.getElementById('add').style.display = 'none';
+            document.getElementById('update').style.display = 'none';
+            document.getElementById('delete').style.display = 'none';
+            document.getElementById(section).style.display = 'block';
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            tippy('.tooltip');
+        });
+    </script>
+</body>
+</html>

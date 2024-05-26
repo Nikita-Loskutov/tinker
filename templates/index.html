@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="logout-container">
+        <a href="{{ url_for('logout') }}" class="logout-button">Выйти</a>
+    </div>
+    {% if current_user.is_admin %}
+    <div class="admin-container">
+        <a href="{{ url_for('admin') }}" class="admin-button">Админ панель</a>
+    </div>
+    {% endif %}
+    <div class="container">
+        <h1>Добро пожаловать {{ current_user.username }}</h1>
+        <!-- Таблица данных -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        {% for column in columns %}
+                        <th class="{{ column }}">{{ column }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+                    <tr>
+                        {% for cell in row %}
+                        <td>{{ cell }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

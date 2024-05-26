@@ -1,0 +1,209 @@
+body {
+    background: url('/static/background2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+.back-to-main-container {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+}
+
+.back-to-main-button {
+    padding: 10px 20px;
+    background-color: #5cb85c;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px; /* Rounded corners */
+    font-size: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease;
+}
+
+.back-to-main-button:hover {
+    background-color: #4cae4c;
+}
+
+/* Styles for the admin button */
+.admin-container {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+}
+
+.admin-button {
+    padding: 10px 20px;
+    background-color: #5cb85c;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px; /* Rounded corners */
+    font-size: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease;
+}
+
+.admin-button:hover {
+    background-color: #4cae4c;
+}
+
+.logout-container {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+}
+
+.logout-button {
+    padding: 10px 20px;
+    background-color: #d9534f;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #c9302c;
+}
+
+/* Styles for the main container */
+.container {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 400px;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.table-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+    color: #333;
+}
+
+th {
+    background: rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+th.id, td.id, th.status, td.status {
+    width: 100px;
+}
+
+@media (max-width: 600px) {
+    th, td {
+        padding: 5px;
+    }
+}
+
+/* Styles for authentication containers */
+.auth-container {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.auth-form h1 {
+    color: #333;
+}
+
+.auth-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-form input {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.auth-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5cb85c;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.auth-form button:hover {
+    background-color: #4cae4c;
+}
+
+.auth-form p {
+    margin-top: 15px;
+}
+
+.auth-form a {
+    color: #0275d8;
+    text-decoration: none;
+}
+
+.auth-form a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li.danger {
+    color: red;
+}
+
+li {
+    margin-top: 10px;
+}
+
+/* Tooltip styles */
+.tooltip {
+    display: inline-block;
+    margin-left: 5px;
+    cursor: pointer;
+    color
